@@ -94,6 +94,7 @@ h2 {
   padding: 0;
   list-style: none;
   margin: 0;
+  color: #000;
 }
 
 .task-item {
@@ -158,27 +159,4 @@ h2 {
 
 .content-color {
   background-color: var(--background-color);
-}
-
-/* スマホ表示を意識したスタイル */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-  }
-
-
-  .task-item {
-    padding: 10px;
-    margin: 5px;
-  }
-
-  .update-button,
-  .delete-button {
-    padding: 3px 8px;
-    min-width: 50px;
-  }
 }

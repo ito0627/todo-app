@@ -4,7 +4,7 @@ import TaskList from "../src/recoil/components/TaskList";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-gray-200 h-screen">
+    <div className="bg-gray-200 min-h-screen h-screen">
       <div className="flex flex-col items-center w-11/12 h-full mx-auto content-color">
         <TaskForm />
         <TaskList />
