@@ -105,7 +105,6 @@ h2 {
   justify-content: space-between;
   align-items: center;
   color: #000;
-  /* リスト内の文字を黒くする */
 }
 
 .pending {
@@ -116,10 +115,8 @@ h2 {
   max-height: 400px;
   overflow-y: auto;
   padding-right: 15px;
-  /* スクロールバーが表示されてもサイズが変わらないようにする */
 }
 
-/* ボタンのデザイン */
 .update-button {
   margin-left: 10px;
 }
@@ -154,4 +151,30 @@ h2 {
 
 .content-color {
   background-color: var(--background-color);
+}
+
+/* スマホ表示を意識したスタイル */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .task-list-container {
+    max-height: 300px;
+  }
+
+  .task-item {
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .update-button,
+  .delete-button {
+    padding: 3px 8px;
+    min-width: 50px;
+  }
 }
