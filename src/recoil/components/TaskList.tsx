@@ -38,7 +38,7 @@ const TaskList: React.FC = () => {
   );
 
   return (
-    <div className="task-list-container w-full h-full mx-auto p-4 mt-10">
+    <div className="task-list-container w-full h-auto mx-auto p-4 mt-10">
       <div>
         <h2 className="text-4xl text-green-custom mb-3 tracking-widest">
           LIST
