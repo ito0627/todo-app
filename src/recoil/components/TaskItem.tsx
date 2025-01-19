@@ -28,7 +28,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
         </div>
       </div>
       <div className="mt-3">
-        <p>description: {task.description}</p>
+        <p>Description: {task.description}</p>
       </div>
       <div className="flex justify-end mt-2 space-x-2">
         <button

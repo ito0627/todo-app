@@ -22,7 +22,9 @@ const TaskForm: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center w-11/12 mx-auto">
-      <h1 className="text-4xl mt-5 mb-5 tracking-widest font-mono">My Tasks</h1>
+      <h1 className="text-4xl mt-10 mb-5 tracking-widest font-mono">
+        My Tasks
+      </h1>
       <input
         type="text"
         value={title}
