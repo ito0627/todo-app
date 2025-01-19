@@ -44,7 +44,7 @@ const TaskList: React.FC = () => {
           LIST
         </h2>
         <div className="w-full max-w-lg p-4">
-          <ul className="bg-white">
+          <ul>
             {tasks.map((task) => (
               <TaskItem
                 key={task.id}
