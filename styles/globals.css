@@ -25,27 +25,20 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* グローバルスタイル */
 :root {
-  --background-color: #e6fff2;
-  /* 背景色 */
+  --background-color: rgb(243, 255, 251);
   --primary-color: #4caf50;
-  /* ボタン色 */
   --text-color: #000;
-  /* テキスト色 */
   --heading-color: #000;
-  /* 見出し色 */
   --completed-bg: #d1f7d7;
-  /* 完了タスク背景色 */
   --pending-bg: #ffe6e6;
-  /* 未完了タスク背景色 */
+  --custom-green: #5ec543;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--background-color);
 }
 
 h1 {
@@ -64,11 +57,15 @@ form {
 
 input[type="text"],
 textarea {
-  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   border-radius: 5px;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: #000;
 }
 
 button {
@@ -111,12 +108,17 @@ h2 {
   background-color: var(--pending-bg);
 }
 
+.task-list-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 15px;
+  /* スクロールバーが表示されてもサイズが変わらないようにする */
+}
+
 /* ボタンのデザイン */
 .update-button {
   margin-left: 10px;
 }
-
-.delete-button {}
 
 .update-button,
 .delete-button {
@@ -125,6 +127,7 @@ h2 {
   padding: 5px 10px;
   color: white;
   cursor: pointer;
+  min-width: 60px;
 }
 
 .update-button:hover {
@@ -135,14 +138,16 @@ h2 {
   opacity: 0.8;
 }
 
-/* 新しいクラス */
 .bg-green-custom {
-  background-color: #5ec543;
+  background-color: var(--custom-green);
   opacity: 1 !important;
-
 }
 
 .text-green-custom {
-  color: #5ec543;
+  color: var(--custom-green);
   opacity: 1 !important;
+}
+
+.content-color {
+  background-color: var(--background-color);
 }

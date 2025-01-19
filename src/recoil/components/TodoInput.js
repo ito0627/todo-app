@@ -23,13 +23,11 @@ const TodoInput = ({ addTodo }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         className="w-full p-2 mb-2 border border-gray-300 rounded"
-        placeholder="タイトルを追加"
       />
       <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="w-full p-2 mb-2 border border-gray-300 rounded h-24"
-        placeholder="内容を追加"
       />
       <button
         type="submit"

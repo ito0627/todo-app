@@ -1,7 +1,7 @@
 import React from "react";
 
 interface TodoItemProps {
-  todo: string; // todo の型を string に指定
+  todo: string;
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
