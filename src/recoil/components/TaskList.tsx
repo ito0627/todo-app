@@ -38,7 +38,10 @@ const TaskList: React.FC = () => {
   );
 
   return (
-    <div className="task-list-container w-full max-w-lg mx-auto p-4">
+    <div
+      className="task-list-container w-full max-w-lg mx-auto p-4"
+      style={{ maxHeight: "", overflowY: "auto" }}
+    >
       <ul className="bg-white">
         {tasks.map((task) => (
           <TaskItem

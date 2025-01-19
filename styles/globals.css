@@ -17,6 +17,7 @@
 input, textarea {
   border: none;
   outline: none;
+  color: #000;
 }
 
 body {
@@ -103,6 +104,8 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #000;
+  /* リスト内の文字を黒くする */
 }
 
 .pending {
