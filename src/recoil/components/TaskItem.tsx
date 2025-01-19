@@ -19,9 +19,9 @@ const TaskItem: React.FC<TaskItemProps> = ({
   return (
     <li
       key={task.id}
-      className="border border-black mb-5 p-2 text-black bg-white"
+      className="border border-black mb-5 p-2 text-black bg-white break-words"
     >
-      <div className="flex items-center">
+      <div className="flex items-start">
         <div className="w-1/5">{task.completed ? "完了" : "未完了"}</div>
         <div className="w-4/5 ml-2">
           <p>タイトル: {task.title}</p>

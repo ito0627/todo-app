@@ -6,7 +6,7 @@ import TaskItem from "./TaskItem";
 const TaskList: React.FC = () => {
   const [tasks, setTasks] = useRecoilState(taskState);
 
-  // タスクの完了状態を切り替える関数
+  // タスク完了状態切り替え関数
   const toggleTaskCompletion = useCallback(
     (id: string) => {
       try {
@@ -25,7 +25,7 @@ const TaskList: React.FC = () => {
     [tasks, setTasks]
   );
 
-  // タスク削除の際に使用する関数
+  // タスク削除用関数
   const deleteTask = useCallback(
     (id: string) => {
       try {

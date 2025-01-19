@@ -2,22 +2,52 @@ import { useState, useCallback } from "react";
 import { useSetRecoilState } from "recoil";
 import { taskState, Task } from "../../atoms/taskAtom";
 import { v4 as uuidv4 } from "uuid";
+import DOMPurify from "dompurify";
 
 const TaskForm: React.FC = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [error, setError] = useState("");
   const setTasks = useSetRecoilState(taskState);
 
+  const sanitizeInput = (input: string) => {
+    return DOMPurify.sanitize(input);
+  };
+
+  // タスク追加処理
   const addTask = useCallback(() => {
+    if (title.length > 50) {
+      setError("タイトルは50文字以内で入力してください。");
+      return;
+    }
+    if (description.length > 256) {
+      setError("説明は256文字以内で入力してください。");
+      return;
+    }
+
+    const sanitizedTitle = sanitizeInput(title);
+    const sanitizedDescription = sanitizeInput(description);
+
     const newTask: Task = {
       id: uuidv4(),
-      title,
-      description,
+      title: sanitizedTitle,
+      description: sanitizedDescription,
       completed: false,
     };
-    setTasks((prev) => [...prev, newTask]);
+
+    // 状態管理の際に不正なデータが混入しないようにする
+    setTasks((prev) => {
+      const sanitizedTasks = prev.map((task) => ({
+        ...task,
+        title: sanitizeInput(task.title),
+        description: sanitizeInput(task.description),
+      }));
+      return [...sanitizedTasks, newTask];
+    });
+
     setTitle("");
     setDescription("");
+    setError("");
   }, [title, description, setTasks]);
 
   return (
@@ -25,12 +55,13 @@ const TaskForm: React.FC = () => {
       <h1 className="text-4xl mt-10 mb-5 tracking-widest font-mono">
         My Tasks
       </h1>
+      {error && <p className="text-red-500">{error}</p>}
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="タイトル"
-        className="w-10/12 p-2 mb-2 "
+        className="w-10/12 p-2 mb-2"
       />
       <textarea
         value={description}
