@@ -14,14 +14,14 @@ const TaskForm: React.FC = () => {
     return DOMPurify.sanitize(input);
   };
 
-  // タスク追加処理
   const addTask = useCallback(() => {
     if (title.length > 50) {
-      setError("タイトルは50文字以内で入力してください。");
+      // エラー内容をポップアップして表示
+      setError("タイトルは50文字以内です。");
       return;
     }
     if (description.length > 256) {
-      setError("説明は256文字以内で入力してください。");
+      setError("説明は256文字以内です。");
       return;
     }
 
@@ -34,17 +34,7 @@ const TaskForm: React.FC = () => {
       description: sanitizedDescription,
       completed: false,
     };
-
-    // 状態管理の際に不正なデータが混入しないようにする
-    setTasks((prev) => {
-      const sanitizedTasks = prev.map((task) => ({
-        ...task,
-        title: sanitizeInput(task.title),
-        description: sanitizeInput(task.description),
-      }));
-      return [...sanitizedTasks, newTask];
-    });
-
+    setTasks((prev) => [...prev, newTask]);
     setTitle("");
     setDescription("");
     setError("");
