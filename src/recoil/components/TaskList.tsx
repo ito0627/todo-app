@@ -38,20 +38,24 @@ const TaskList: React.FC = () => {
   );
 
   return (
-    <div
-      className="task-list-container w-full max-w-lg mx-auto p-4"
-      style={{ maxHeight: "", overflowY: "auto" }}
-    >
-      <ul className="bg-white">
-        {tasks.map((task) => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            toggleTaskCompletion={toggleTaskCompletion}
-            deleteTask={deleteTask}
-          />
-        ))}
-      </ul>
+    <div className="task-list-container w-full h-full mx-auto p-4 mt-10">
+      <div>
+        <h2 className="text-4xl text-green-custom mb-3 tracking-widest">
+          LIST
+        </h2>
+        <div className="w-full max-w-lg p-4">
+          <ul className="bg-white">
+            {tasks.map((task) => (
+              <TaskItem
+                key={task.id}
+                task={task}
+                toggleTaskCompletion={toggleTaskCompletion}
+                deleteTask={deleteTask}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
